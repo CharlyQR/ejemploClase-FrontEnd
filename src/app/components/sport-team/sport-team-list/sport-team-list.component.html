@@ -8,7 +8,7 @@
       <p>Players: </p>
       <div class="player-content">
         @for (player of team.players; track player) {
-          <p class="player-item">{{player}}</p>
+          <p class="player-item">{{player.name}}</p>
         }
       </div>
       <p>Founded: {{team.founded}}</p>

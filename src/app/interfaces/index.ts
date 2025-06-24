@@ -90,6 +90,7 @@ export interface IPreferenceList {
 }
 
 export interface ISportTeam {
+  id?: number;
   name?: string;
   players?: string[];
   stadium?: string;
@@ -97,4 +98,9 @@ export interface ISportTeam {
   coach?: string;
   isInClubsWorldCup?: boolean;
   teamLogo?: string;
+}
+
+export interface IPlayer {
+  id?: number;
+  name?: string;
 }
