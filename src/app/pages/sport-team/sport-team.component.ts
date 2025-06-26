@@ -3,12 +3,17 @@ import { ISportTeam } from "../../interfaces";
 import { SportTeamFormComponent } from "../../components/sport-team/sport-team-form/sport-team-form.component";
 import { SportTeamListComponent } from "../../components/sport-team/sport-team-list/sport-team-list.component";
 import { TeamService } from "../../services/team.service";
+import { PaginationComponent } from "../../components/pagination/pagination.component";
 
 
 @Component({
   selector: "app-sport-team",
   standalone: true,
-  imports: [SportTeamFormComponent, SportTeamListComponent],
+  imports: [
+    SportTeamFormComponent,
+    SportTeamListComponent,
+    PaginationComponent
+  ],
   templateUrl: "./sport-team.component.html",
   styleUrls: ["./sport-team.component.scss"]
 })

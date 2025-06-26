@@ -92,7 +92,7 @@ export interface IPreferenceList {
 export interface ISportTeam {
   id?: number;
   name?: string;
-  players?: string[];
+  players?: IPlayer[];
   stadium?: string;
   founded?: number;
   coach?: string;

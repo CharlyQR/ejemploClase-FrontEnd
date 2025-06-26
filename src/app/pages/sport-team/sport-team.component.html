@@ -1,6 +1,11 @@
 <p>Teams</p>
 
 <app-sport-team-form/>
+
 <app-sport-team-list
     [pTeamList]="teamService.teams$()"
+/>
+
+<app-pagination
+[service]="teamService"
 />
