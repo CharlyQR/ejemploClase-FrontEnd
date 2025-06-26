@@ -23,6 +23,7 @@ export class TeamService extends BaseService<ISportTeam>{
   public totalItems: any = [];
   private alertService: AlertService = inject(AlertService);
 
+  //Devuelve todos los datos en la BD de Teams
   getAll() {
     this.findAllWithParams({ page: this.search.page, size: this.search.size})
     .subscribe({
@@ -32,6 +33,45 @@ export class TeamService extends BaseService<ISportTeam>{
         this.teamListSignal.set(response.data);
       },
       error: (err: any) => {
+        console.error('error', err);
+      }
+    });
+  }
+
+  save(item: ISportTeam) {
+    this.add(item).subscribe({
+      next: (response: IResponse<ISportTeam>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the team', 'center', 'top', ['error-snackbar']);
+        console.error('error', err);
+      }
+    });
+  }
+  
+    update(item: ISportTeam) {
+    this.edit(item.id, item).subscribe({
+      next: (response: IResponse<ISportTeam>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the team', 'center', 'top', ['error-snackbar']);
+        console.error('error', err);
+      }
+    });
+  }
+
+    delete(item: ISportTeam) {
+    this.del(item.id).subscribe({
+      next: (response: IResponse<ISportTeam>) => {
+        this.alertService.displayAlert('success', response.message, 'center', 'top', ['success-snackbar']);
+        this.getAll();
+      },
+      error: (err: any) => {
+        this.alertService.displayAlert('error', 'An error occurred adding the team', 'center', 'top', ['error-snackbar']);
         console.error('error', err);
       }
     });

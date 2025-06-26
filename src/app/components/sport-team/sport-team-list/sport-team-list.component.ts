@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { ISportTeam } from "../../../interfaces";
 
 @Component({
@@ -9,4 +9,6 @@ import { ISportTeam } from "../../../interfaces";
 })
 export class SportTeamListComponent {
   @Input() pTeamList: ISportTeam[] = [];
+  @Output() callUpdateModalMethod: EventEmitter<ISportTeam> = new EventEmitter<ISportTeam>();
+  @Output() callDeleteMethod: EventEmitter<ISportTeam> = new EventEmitter<ISportTeam>();
 }
